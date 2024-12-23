@@ -4,7 +4,7 @@ public class Team {
     public int teamId;
     public Player headPlayer;
     public Player tailPlayer;
-    public int totalPoints;
+    public int totalPoint;
     public int goalDiff;
     
     public Team(String teamName, int teamId){
@@ -12,11 +12,18 @@ public class Team {
         this.teamId = teamId;
         this.headPlayer = null;
         this.tailPlayer = null;
-        this.totalPoints = 0;
+        this.totalPoint = 0;
         this.goalDiff = 0;
     }
     
-    public void updateTeam(){
-        
+    public void updateTeam(int totalPoint, int goalDiff){
+        this.totalPoint = updateTotalPoint();
+        this.goalDiff = updateGoalDiff();
     }
+    
+    public void updateTeamName(String teamName){
+        this.teamName = teamName;
+    }
+    
+    
 }
