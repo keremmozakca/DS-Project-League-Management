@@ -24,6 +24,4 @@ public class Team {
     public void updateTeamName(String teamName){
         this.teamName = teamName;
     }
-    
-    adasdasdas
 }
