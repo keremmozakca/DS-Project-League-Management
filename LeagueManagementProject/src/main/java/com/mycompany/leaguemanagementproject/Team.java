@@ -15,4 +15,8 @@ public class Team {
         this.totalPoints = 0;
         this.goalDiff = 0;
     }
+    
+    public void updateTeam(){
+        
+    }
 }
