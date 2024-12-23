@@ -1,13 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.mycompany.leaguemanagementproject;
 
-/**
- *
- * @author fevzi
- */
 public class Match {
     
+    public Team home;
+    public Team away;
+    public Match next;
+    
+    public Match(Team home, Team away){
+        this.home = home;
+        this.away = away;
+        this.next = null;
+    }
+    
+    public void playMatch(){
+        
+    }
 }
