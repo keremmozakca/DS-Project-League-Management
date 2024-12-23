@@ -19,7 +19,7 @@ public class MQueue {
         }
         else{
             this.rear.next = m;
-            m = this.rear;
+            this.rear = m;
         }
         
         size++;
@@ -31,10 +31,25 @@ public class MQueue {
             return null;
         }
         else{
-            Match rFront = front;
-            front = front.next;
+            Match rFront = this.front;
+            this.front = this.front.next;
             size--;
             return rFront;
         }
+    }
+    
+    public void printQueue(){
+        if(!isEmpty()){
+            Match current = this.front;
+            while(current != null){
+                System.out.print(current.home + (current.next != null ? " -> " : ""));
+                current = current.next;
+            }
+            System.out.println();
+        }
+    }
+    
+    public boolean isEmpty(){
+        return size == 0;
     }
 }
