@@ -1,17 +1,21 @@
 package com.mycompany.leaguemanagementproject;
 
-public class Player {
+public class Player extends Node{
     
     public String playerName;
     public int playerID;
     public String position;
     public int goals;
     
-    public Player(String playerName, int id, String position){
+    public int value;
+    public Player nextPlayer;
+    
+    public Player(String playerName, int id, String position, int value){
         this.playerName = playerName;
         this.playerID = id;
         this.position = position;
         this.goals = 0;
+        this.value = value;
     }
     
     public void updatePlayerName(String new_name){

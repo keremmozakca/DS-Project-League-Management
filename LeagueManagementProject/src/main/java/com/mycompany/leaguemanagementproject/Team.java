@@ -1,19 +1,22 @@
 package com.mycompany.leaguemanagementproject;
-public class Team {
+public class Team{
     public String teamName;
     public int teamId;
-    public Player headPlayer;
-    public Player tailPlayer;
+    public playerList teamPlayers;
+    
     public int totalPoint;
     public int goalDiff;
     
-    public Team(String teamName, int teamId){
+    public int advantage;
+    public Team nextTeam;
+    
+    public Team(String teamName, int teamId, int advantage){
         this.teamName = teamName;
         this.teamId = teamId;
-        this.headPlayer = null;
-        this.tailPlayer = null;
         this.totalPoint = 0;
         this.goalDiff = 0;
+        this.advantage = advantage;
+        this.teamPlayers = new playerList();
     }
     
     public void updateTeam(int totalPoint, int goalDiff){

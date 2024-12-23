@@ -1,11 +1,12 @@
 
 package com.mycompany.leaguemanagementproject;
 
-public class Match {
+public class Match extends Node{
     
     public Team home;
     public Team away;
-    public Match next;
+    
+    public Match nextMatch;
     
     public Match(Team home, Team away){
         this.home = home;
