@@ -1,6 +1,6 @@
 package com.mycompany.leaguemanagementproject;
 
-public class Player extends Node{
+public class Player{
     
     public String playerName;
     public int playerID;

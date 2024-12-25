@@ -27,4 +27,8 @@ public class Team{
     public void updateTeamName(String teamName){
         this.teamName = teamName;
     }
+    
+    public void newPlayerProfile(String name, int ID, String position, int value){      
+        this.teamPlayers.newPlayer(new Player(name, ID, position, value));
+    }
 }
