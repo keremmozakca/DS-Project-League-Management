@@ -1,10 +1,10 @@
 package com.mycompany.leaguemanagementproject;
-public class PlayerHashTable {
+public class TeamHashTable {
     public int[] table;
     public int prime;
     public int size;
     
-    public PlayerHashTable(int capacity){
+    public TeamHashTable(int capacity){
         this.prime = 19;
         
         this.table = new int[capacity];
@@ -30,7 +30,7 @@ public class PlayerHashTable {
             index = hash(originalIndex + i * i) % this.table.length;
             i++;
             if(size == this.table.length){
-                System.out.println("Player hash table is full!");
+                System.out.println("Team hash table is full!");
                 return;
             }
         }
@@ -42,8 +42,8 @@ public class PlayerHashTable {
         return key % this.prime;
     }
     
-    public void displayPlayerTable(){
-        System.out.println("Player Table:");
+    public void displayTeamTable(){
+        System.out.println("Team Table:");
         for(int i = 0; i < this.table.length; i++){
             System.out.println(i + ": " + (table[i] != -1 ? table[i] : "null"));
         }
