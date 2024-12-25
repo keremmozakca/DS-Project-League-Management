@@ -32,7 +32,7 @@ public class MQueue {
         }
         else{
             Match rFront = this.front;
-            this.front = this.front.next;
+            this.front = this.front.nextMatch;
             size--;
             return rFront;
         }
@@ -43,7 +43,7 @@ public class MQueue {
             Match current = this.front;
             while(current != null){
                 System.out.print(current.home + (current.next != null ? " -> " : ""));
-                current = current.next;
+                current = current.nextMatch;
             }
             System.out.println();
         }
