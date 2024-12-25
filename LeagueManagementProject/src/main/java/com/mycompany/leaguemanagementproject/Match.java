@@ -32,7 +32,7 @@ public class Match extends Node{
             Player awayPlayer;
             
             double minValueForHomePlayer = (homePlayer.value * 0.4) + (home.advantage * 0.6);
-            double minValueForAwayPlayer = (awayPlayer.value * 0.4) + (away.advantage * 0.4);
+            double minValueForAwayPlayer = (awayPlayer.value * 0.4) + (away.advantage * 0.6);
             
             double rndValueForAwayPlayer = (Math.random() * ((100 - minValueForAwayPlayer) + 1)) + minValueForAwayPlayer;
             double rndValueForHomePlayer = (Math.random() * ((100 - minValueForHomePlayer) + 1)) + minValueForHomePlayer;
