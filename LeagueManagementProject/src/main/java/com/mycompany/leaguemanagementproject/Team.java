@@ -45,15 +45,16 @@ public class Team{
     
     public Player findPlayer(){
         int rnd = (int)(Math.random() * 12);
+        //System.out.println("Random number: " + rnd);
         Player current = this.teamPlayers.head;
         int i = 0;
         while(current.nextPlayer != null){
             if(rnd == i){
-                return current;
+                break;
             }
             current = current.nextPlayer;
             i++;
         }
-        return null;
+        return current;
     }
 }

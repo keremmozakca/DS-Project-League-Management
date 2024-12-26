@@ -290,7 +290,7 @@ public class SuperLeagueManagement {
             team.advantage = (int)((teamAdvantageAlgorithm(team) - average) * 10);
         }
         
-        Match m = new Match(team2, team3);
+        Match m = new Match(team3, team2);
         m.playMatch();
     }
     

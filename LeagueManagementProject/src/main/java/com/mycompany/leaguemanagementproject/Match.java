@@ -15,7 +15,7 @@ public class Match extends Node{
     }
     
     public void playMatch(){
-        int shotNumber = (int)(Math.random() * 10);
+        int shotNumber = 1 + (int)(Math.random() * 9);
      
         Player homeGoalKeeper = home.findPlayer("Goalkeeper");
         Player awayGoalKeeper = away.findPlayer("Goalkeeper");
