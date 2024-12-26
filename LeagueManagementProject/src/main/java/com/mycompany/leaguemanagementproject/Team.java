@@ -20,8 +20,8 @@ public class Team{
     }
     
     public void updateTeam(int totalPoint, int goalDiff){
-        this.totalPoint = updateTotalPoint();
-        this.goalDiff = updateGoalDiff();
+        //this.totalPoint = updateTotalPoint();
+        //this.goalDiff = updateGoalDiff();
     }
     
     public void updateTeamName(String teamName){
@@ -30,5 +30,30 @@ public class Team{
     
     public void newPlayerProfile(String name, int ID, String position, int value){      
         this.teamPlayers.newPlayer(new Player(name, ID, position, value));
+    }
+    
+    public Player findPlayer(String position){
+        Player current = this.teamPlayers.head;
+        while(current != null){
+            if(current.position == position){
+                return current;
+            }
+            current = current.nextPlayer;
+        }
+        return null;
+    }
+    
+    public Player findPlayer(){
+        int rnd = (int)(Math.random() * 12);
+        Player current = this.teamPlayers.head;
+        int i = 0;
+        while(current != null){
+            if(rnd == i){
+                return current;
+            }
+            current = current.nextPlayer;
+            i++;
+        }
+        return null;
     }
 }

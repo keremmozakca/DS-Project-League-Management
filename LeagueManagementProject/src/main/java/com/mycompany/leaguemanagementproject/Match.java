@@ -14,11 +14,11 @@ public class Match extends Node{
         this.next = null;
     }
     
-    public void playMatch(Team home, Team away){
+    public void playMatch(){
         int shotNumber = (int)(Math.random() * 10);
      
-        Player homeGoalKeeper;
-        Player awayGoalKeeper;
+        Player homeGoalKeeper = home.findPlayer("Goalkeeper");
+        Player awayGoalKeeper = away.findPlayer("Goalkeeper");
         
         double minValueForHomeKeeper = (homeGoalKeeper.value * 0.4) + (home.advantage * 0.6);
         double minValueForAwayKeeper = (awayGoalKeeper.value * 0.4) + (away.advantage * 0.6);
@@ -28,8 +28,8 @@ public class Match extends Node{
         
         for(int i = 1; i < shotNumber + 1; i++){
             //Player bulma kısmı eklenecek.
-            Player homePlayer;
-            Player awayPlayer;
+            Player homePlayer = home.findPlayer();
+            Player awayPlayer = away.findPlayer();
             
             double minValueForHomePlayer = (homePlayer.value * 0.4) + (home.advantage * 0.6);
             double minValueForAwayPlayer = (awayPlayer.value * 0.4) + (away.advantage * 0.6);
