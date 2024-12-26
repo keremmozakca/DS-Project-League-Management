@@ -1,51 +1,55 @@
 package com.mycompany.leaguemanagementproject;
 public class TeamHashTable {
-    public int[] table;
+    public Team[] table;
     public int prime;
     public int size;
     
     public TeamHashTable(int capacity){
-        this.prime = 19;
+        this.prime = 23;
         
-        this.table = new int[capacity];
+        this.table = new Team[capacity];
         
         for(int i = 0; i < capacity; i++){
-            table[i] = -1;
+            table[i] = null;
         }
         
         size = 0;
     }
     
-    public void putQuadratic(int key){
-        int index = hash(key) % this.table.length;
+    public void putLinear(Team t){
+        int index = hash(t.shortName);
         int originalIndex = index;
-        int i = 1;
         
-        while(table[index] != -1){
-            if(table[index] == key){
-                System.out.println("Key already exist: " + key);
+        while(table[index]!= null){
+            if(t.equals(table[index])){
+                System.out.println("Shortname already exist: " + t.shortName);
                 return;
             }
-            
-            index = hash(originalIndex + i * i) % this.table.length;
-            i++;
-            if(size == this.table.length){
-                System.out.println("Team hash table is full!");
+            index = (index + 1) % table.length;
+            if(index == originalIndex){
+                System.out.println("Team table is full");
                 return;
             }
         }
-        this.table[index] = key;
+        
+        table[index] = t;
         size++;
     }
     
-    public int hash(int key){
-        return key % this.prime;
+    public int hash(String shortName){
+        int sumHash = 0;
+        for(int i = shortName.length() - 1; i > -1; i--){
+            int ch = (int)(shortName.charAt(i));
+            sumHash += ch * Math.pow(32, shortName.length() - 1 - i);
+        }
+        
+        return (sumHash % this.table.length) % this.prime;
     }
     
     public void displayTeamTable(){
         System.out.println("Team Table:");
         for(int i = 0; i < this.table.length; i++){
-            System.out.println(i + ": " + (table[i] != -1 ? table[i] : "null"));
+            System.out.println(i + ": " + (table[i] != null ? table[i].teamName : "null"));
         }
     }
 }
