@@ -21,5 +21,21 @@ public class LeagueManagementProject {
         table.displayTeamTable();
         table.putLinear(t5);
         table.displayTeamTable();*/
+        
+        /*Player p1 = new Player("Ali", 1, "GoalKeeper", 100);
+        Player p2 = new Player("Ahmet", 2, "dsdasds", 100);
+        Player p3 = new Player("Cabbar", 3, "adsasdasd", 100);
+        Player p4 = new Player("Yasin", 4, "adasdasdasd", 100);
+        Player p5 = new Player("Niyazi", 5, "dasdasdasdas", 100);
+        
+        PBinarySearchTree tree = new PBinarySearchTree();
+        tree.insert(p1);
+        tree.insert(p2);
+        tree.insert(p3);
+        tree.insert(p4);
+        tree.insert(p5);
+        
+        String a = tree.findPlayerByBinarySearchTree(3);
+        System.out.println(a);*/
     }
 }

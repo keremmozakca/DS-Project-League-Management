@@ -9,6 +9,8 @@ public class Player{
     
     public int value;
     public Player nextPlayer;
+    public Player leftPlayer;
+    public Player rightPlayer;
     
     public Player(String playerName, int id, String position, int value){
         this.playerName = playerName;
