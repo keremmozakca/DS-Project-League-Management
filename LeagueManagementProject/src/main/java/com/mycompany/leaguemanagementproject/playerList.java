@@ -14,7 +14,7 @@ public class playerList{
             this.head = player;
         }else{
             Player current = head;
-            while(current != null){
+            while(current.nextPlayer != null){
                 current = current.nextPlayer;
             }
             current.nextPlayer = player;

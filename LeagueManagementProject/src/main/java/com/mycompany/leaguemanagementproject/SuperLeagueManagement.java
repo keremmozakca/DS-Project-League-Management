@@ -321,6 +321,8 @@ public class SuperLeagueManagement {
             player = player.nextPlayer;
         }           
         return (totalPoint / 11);
-    }    
+    }
+
+    
     
 }

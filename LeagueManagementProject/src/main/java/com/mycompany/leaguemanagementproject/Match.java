@@ -42,21 +42,26 @@ public class Match extends Node{
             if(i % 2 == 1){
                 if(rndValueForHomePlayer > rndValueForAwayKeeper){
                     homeScore++;
-                    System.out.println(homeScore + " " + awayScore);
+                    System.out.printf("%-5s : %-5s\n", home.teamName, away.teamName);
+                    System.out.printf("%-2d : %-2d\n", homeScore, awayScore);
                 }
                 else{
-                    System.out.println(homeScore + " " + awayScore);
+                    System.out.printf("%-5s : %-5s\n", home.teamName, away.teamName);
+                    System.out.printf("%-2d : %-2d\n", homeScore, awayScore);
                 }
             }
             else{
                 if(rndValueForAwayPlayer > rndValueForHomeKeeper){
                     awayScore++;
-                    System.out.println(homeScore + " " + awayScore);
+                    System.out.printf("%-5s : %-5s\n", home.teamName, away.teamName);
+                    System.out.printf("%-2d : %-2d\n", homeScore, awayScore);
                 }
                 else{
-                    System.out.println(homeScore + " " + awayScore);
+                    System.out.printf("%-5s : %-5s\n", home.teamName, away.teamName);
+                    System.out.printf("%-2d : %-2d\n", homeScore, awayScore);
                 }
             }
         }
     }
+    
 }

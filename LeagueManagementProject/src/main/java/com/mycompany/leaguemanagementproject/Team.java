@@ -34,7 +34,7 @@ public class Team{
     
     public Player findPlayer(String position){
         Player current = this.teamPlayers.head;
-        while(current != null){
+        while(current.nextPlayer != null){
             if(current.position == position){
                 return current;
             }
@@ -47,7 +47,7 @@ public class Team{
         int rnd = (int)(Math.random() * 12);
         Player current = this.teamPlayers.head;
         int i = 0;
-        while(current != null){
+        while(current.nextPlayer != null){
             if(rnd == i){
                 return current;
             }
