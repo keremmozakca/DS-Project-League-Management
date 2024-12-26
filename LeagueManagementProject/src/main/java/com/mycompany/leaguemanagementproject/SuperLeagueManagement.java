@@ -290,8 +290,9 @@ public class SuperLeagueManagement {
             team.advantage = (int)((teamAdvantageAlgorithm(team) - average) * 10);
         }
         
-        Match m = new Match(team3, team2);
-        m.playMatch();
+        //Match m = new Match(team10, team2);
+        //m.playMatch();
+        scheduleMatch(teams);
     }
     
     public double teamAdvantageAlgorithm(Team team){
@@ -323,6 +324,49 @@ public class SuperLeagueManagement {
         return (totalPoint / 11);
     }
 
+    public void scheduleMatch(Team[] teams){
+        Team[] newTeams = shuffle(teams);
+        Team[] homeTeams = new Team[9];
+        Team[] awayTeams = new Team[9];
+        for(int i = 0;i < newTeams.length;i++){
+            if(i < 9){
+                homeTeams[i] = newTeams[i];
+            }else{
+                awayTeams[i % awayTeams.length] = newTeams[i];
+            }
+        }
+
+        
+        
+        printArr(homeTeams);
+        printArr(awayTeams);
+    }
     
+    public void printArr(Team[] ta){
+        for(int i = 0; i < ta.length; i++){
+            System.out.println(ta[i].teamName);
+        }
+        System.out.println("");
+    }
+    
+    public boolean control(int n, int[] arr){
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] == n){
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public Team[] shuffle(Team[] teamArray){        
+        for (int i = 0; i < teamArray.length - 1; i++) {
+            int j = (int)(Math.random() * teamArray.length);
+
+            Team temp = teamArray[i];
+            teamArray[i] = teamArray[j]; 
+            teamArray[j] = temp;
+        }
+        return teamArray;
+    }
     
 }
