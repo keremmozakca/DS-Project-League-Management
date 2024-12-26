@@ -1,7 +1,7 @@
 package com.mycompany.leaguemanagementproject;
 public class Team{
     public String teamName;
-    public int teamId;
+    public String shortName;
     public playerList teamPlayers;
     
     public int totalPoint;
@@ -10,9 +10,9 @@ public class Team{
     public int advantage;
     public Team nextTeam;
     
-    public Team(String teamName, int teamId, int advantage){
+    public Team(String teamName, String shortName, int advantage){
         this.teamName = teamName;
-        this.teamId = teamId;
+        this.shortName = shortName;
         this.totalPoint = 0;
         this.goalDiff = 0;
         this.advantage = advantage;

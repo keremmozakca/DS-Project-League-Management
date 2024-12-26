@@ -5,7 +5,7 @@ public class SuperLeagueManagement {
     
     public SuperLeagueManagement(){
         // Galatasaray
-        Team team1 = new Team("Galatasaray", 0, 0);       
+        Team team1 = new Team("Galatasaray", "GS", 0);       
 
         team1.newPlayerProfile("Fernando Muslera", 1, "Goalkeeper", 81);  
         team1.newPlayerProfile("Elias Jelert", 24, "Right Back", 73);  
@@ -20,7 +20,7 @@ public class SuperLeagueManagement {
         team1.newPlayerProfile("Mauro Icardi", 9, "Striker", 83);  
 
         // Fenerbahçe
-        Team team2 = new Team("Fenerbahçe", 1, 0);       
+        Team team2 = new Team("Fenerbahçe", "FB", 0);       
 
         team2.newPlayerProfile("Dominik Livaković", 40, "Goalkeeper", 80);  
         team2.newPlayerProfile("Mert Müldür", 16, "Right Back", 74);  
@@ -35,7 +35,7 @@ public class SuperLeagueManagement {
         team2.newPlayerProfile("Edin Džeko", 9, "Striker", 82);  
         
         // Beşiktaş
-        Team team3 = new Team("Beşiktaş", 2, 0);
+        Team team3 = new Team("Beşiktaş", "BJK", 0);
        
         team3.newPlayerProfile("Mert Günok", 34, "Goalkeeper", 77);  
         team3.newPlayerProfile("Jonas Svensson", 2, "Right Back", 75);  
@@ -51,7 +51,7 @@ public class SuperLeagueManagement {
         
         // Samsunspor
         
-        Team team4 = new Team("Samsunspor", 3, 0);
+        Team team4 = new Team("Samsunspor", "SMS", 0);
         
         team4.newPlayerProfile("Okan Kocuk", 1, "Goalkeeper", 69);
         team4.newPlayerProfile("Zeki Yavru", 18, "Right Back", 64);
@@ -66,7 +66,7 @@ public class SuperLeagueManagement {
         team4.newPlayerProfile("Moryké Fofana", 9, "Striker", 65);
 
         // Göztepe
-        Team team5 = new Team("Göztepe", 4, 0);
+        Team team5 = new Team("Göztepe", "GZT", 0);
         
         team5.newPlayerProfile("Mateusz Lis", 97, "Goalkeeper", 73);
         team5.newPlayerProfile("Nazım Sangaré", 30, "Right Back", 68);
@@ -81,7 +81,7 @@ public class SuperLeagueManagement {
         team5.newPlayerProfile("David Datro Fofana", 99, "Striker", 64);
         
         // Eyüpspor
-        Team team6 = new Team("Eyüpspor", 5, 0);
+        Team team6 = new Team("Eyüpspor", "EYS", 0);
         
         team6.newPlayerProfile("Berke Özer", 1, "Goalkeeper", 68);
         team6.newPlayerProfile("Léo Dubois", 15, "Right Back", 60);
@@ -96,7 +96,7 @@ public class SuperLeagueManagement {
         team6.newPlayerProfile("Gianni Bruno", 99, "Striker", 72);
 
         // Başakşehir
-        Team team7 = new Team("Başakşehir", 6, 0);
+        Team team7 = new Team("Başakşehir", "BSKS", 0);
         
         team7.newPlayerProfile("Volkan Babacan", 1, "Goalkeeper", 70);
         team7.newPlayerProfile("Ömer Ali Şahiner", 42, "Right Back", 68);
@@ -111,7 +111,7 @@ public class SuperLeagueManagement {
         team7.newPlayerProfile("Krzysztof Piątek", 9, "Striker", 74);
         
         // Gaziantep FK
-        Team team8 = new Team("Gaziantep FK", 7, 0);
+        Team team8 = new Team("Gaziantep FK", "GFK", 0);
         
         team8.newPlayerProfile("Sokratis Dioudis", 1, "Goalkeeper", 70);
         team8.newPlayerProfile("Deian Sorescu", 2, "Right Back", 69);
@@ -126,7 +126,7 @@ public class SuperLeagueManagement {
         team8.newPlayerProfile("Kenan Kodro", 11, "Striker", 72);
 
         // Antalyaspor
-        Team team9 = new Team("Antalyaspor", 8, 0);
+        Team team9 = new Team("Antalyaspor", "ANS", 0);
         
         team9.newPlayerProfile("Ataberk Dadakdeniz", 1, "Goalkeeper", 66);
         team9.newPlayerProfile("Veysel Sarı", 4, "Right Back", 67);
@@ -141,7 +141,7 @@ public class SuperLeagueManagement {
         team9.newPlayerProfile("Mert Yılmaz", 7, "Left Wing", 63);
         
         // Konyaspor
-        Team team10 = new Team("Konyaspor", 9, 0);
+        Team team10 = new Team("Konyaspor", "KS", 0);
         
         team10.newPlayerProfile("İbrahim Sehic", 13, "Goalkeeper", 70);
         team10.newPlayerProfile("Ahmet Oğuz", 89, "Right Back", 68);
@@ -156,7 +156,7 @@ public class SuperLeagueManagement {
         team10.newPlayerProfile("Serdar Gürler", 17, "Left Wing", 71);
         
         // Rizespor
-        Team team11 = new Team("Rizespor", 10, 0);
+        Team team11 = new Team("Rizespor", "RS", 0);
         
         team11.newPlayerProfile("Tarık Çetin", 1, "Goalkeeper", 68);
         team11.newPlayerProfile("Husniddin Alikulov", 2, "Center Back", 70);
@@ -171,7 +171,7 @@ public class SuperLeagueManagement {
         team11.newPlayerProfile("Václav Jurečka", 11, "Striker", 74);
         
         // Trabzonspor
-        Team team12 = new Team("Trabzonspor", 11, 0);
+        Team team12 = new Team("Trabzonspor", "TS", 0);
         
         team12.newPlayerProfile("Stefan Savić", 4, "Center Back", 81);
         team12.newPlayerProfile("Vitor Hugo", 6, "Center Back", 74);
@@ -186,7 +186,7 @@ public class SuperLeagueManagement {
         team12.newPlayerProfile("Anthony Nwakaeme", 77, "Striker", 76);
         
         // Kasımpaşa
-        Team team13 = new Team("Kasımpaşa", 12, 0);
+        Team team13 = new Team("Kasımpaşa", "KSP", 0);
         
         team13.newPlayerProfile("Andreas Gianniotis", 1, "Goalkeeper", 74);
         team13.newPlayerProfile("Cláudio Winck", 2, "Right Back", 72);
@@ -201,7 +201,7 @@ public class SuperLeagueManagement {
         team13.newPlayerProfile("Murtaza bin Yunus", 11, "Left Wing", 71);
 
         // Sivasspor
-        Team team14 = new Team("Sivasspor", 13, 0);
+        Team team14 = new Team("Sivasspor", "SVS", 0);
 
         team14.newPlayerProfile("Ali Şaşal Vural", 35, "Goalkeeper", 69);
         team14.newPlayerProfile("Uğur Çiftçi", 3, "Left Back", 64);
@@ -216,7 +216,7 @@ public class SuperLeagueManagement {
         team14.newPlayerProfile("Alex Pritchard", 10, "Left Wing", 67);
 
         // Kayserispor
-        Team team15 = new Team("Kayserispor", 14, 0);
+        Team team15 = new Team("Kayserispor", "KYS", 0);
         
         team15.newPlayerProfile("Carlos Mané", 20, "Right Wing", 72);
         team15.newPlayerProfile("Aylton Boa Morte", 70, "Striker", 71);
@@ -231,7 +231,7 @@ public class SuperLeagueManagement {
         team15.newPlayerProfile("Şamil Öztürk", 39, "Goalkeeper", 64);
 
         // Bodrumspor
-        Team team16 = new Team("Bodrumspor", 15, 0);
+        Team team16 = new Team("Bodrumspor", "BS", 0);
         
         team16.newPlayerProfile("Diogo Sousa", 1, "Goalkeeper", 66);
         team16.newPlayerProfile("Zdravko Dimitrov", 7, "Right Back", 65);
@@ -246,7 +246,7 @@ public class SuperLeagueManagement {
         team16.newPlayerProfile("Haki Osman", 19, "Striker", 66);
 
         // Hatayspor
-        Team team17 = new Team("Hatayspor", 16, 0);
+        Team team17 = new Team("Hatayspor", "HS", 0);
         
         team17.newPlayerProfile("Erce Kardeşler", 1, "Goalkeeper", 71);
         team17.newPlayerProfile("Kamil Ahmet Çörekçi", 2, "Right Back", 67);
@@ -261,7 +261,7 @@ public class SuperLeagueManagement {
         team17.newPlayerProfile("Joelson Fernandes", 77, "Right Wing", 66);
         
         // Adana Demirspor
-        Team team18 = new Team("Adana Demirspor", 17, 0);
+        Team team18 = new Team("Adana Demirspor", "ADS", 0);
         
         team18.newPlayerProfile("Yusuf Sarı", 7, "Right Wing", 75);
         team18.newPlayerProfile("Nabil Alioui", 10, "Attacking Midfield", 70);
