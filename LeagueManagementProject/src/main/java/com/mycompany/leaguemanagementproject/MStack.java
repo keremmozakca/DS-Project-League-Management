@@ -7,7 +7,9 @@ public class MStack {
     
     public MStack(int size){
         this.matchResults = new Match[size];
+        teams = new Team[size];
         this.top = -1;
+        this.top_ = 0;
     }
     
     public void push(Match m){
@@ -22,8 +24,9 @@ public class MStack {
     
     //@Override
     public void push_(Team team){
-        top_++;
-        teams[top_] = team;
+        if(top_ + 1 < this.teams.length){
+            teams[top_++] = team;
+        }
     }
     
     public Match pop(){
@@ -37,7 +40,10 @@ public class MStack {
     }
     //Override
     public Team pop_(){
-        return teams[top_--];       
+        if(top_ > 0){
+            return teams[top_--]; 
+        }
+        return null;
     }
     
     public boolean isFull(){
