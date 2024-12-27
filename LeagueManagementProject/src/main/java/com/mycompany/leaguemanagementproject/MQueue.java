@@ -18,7 +18,7 @@ public class MQueue {
             this.front = m;
         }
         else{
-            this.rear.next = m;
+            this.rear.nextMatch = m;
             this.rear = m;
         }
         
@@ -41,9 +41,15 @@ public class MQueue {
     public void printQueue(){
         if(!isEmpty()){
             Match current = this.front;
+            int weekCounter = 0;
             while(current != null){
-                System.out.print(current.home + (current.next != null ? " -> " : ""));
+                if(weekCounter % 9 == 0){
+                    System.out.println("");
+                }
+                System.out.println(current.home.teamName + " and " + current.away.teamName);
+                //(current.next != null ? " -> " : ""));
                 current = current.nextMatch;
+                weekCounter++;
             }
             System.out.println();
         }

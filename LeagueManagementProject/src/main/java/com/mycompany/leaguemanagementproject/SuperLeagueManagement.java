@@ -3,6 +3,8 @@ package com.mycompany.leaguemanagementproject;
 
 public class SuperLeagueManagement {
     
+    MQueue matchQueue = new MQueue();
+    
     public SuperLeagueManagement(){
         // Galatasaray
         Team team1 = new Team("Galatasaray", "GS", 0);       
@@ -326,25 +328,66 @@ public class SuperLeagueManagement {
 
     public void scheduleMatch(Team[] teams){
         Team[] newTeams = shuffle(teams);
+        Team[] newTeamsCopy = newTeams.clone();
         Team[] homeTeams = new Team[9];
-        Team[] awayTeams = new Team[9];
-        for(int i = 0;i < newTeams.length;i++){
-            if(i < 9){
-                homeTeams[i] = newTeams[i];
+        Team[] awayTeams = new Team[9]; 
+        
+        // FIRST PART
+        homeAwaySeperate(newTeams, homeTeams, awayTeams);
+        //printArr(newTeams); 
+        //printArr(homeTeams);
+        //printArr(awayTeams);
+        planWeek(homeTeams, awayTeams);
+        for(int i = 0;i < newTeams.length -2; i++){
+            Team temp = newTeams[newTeams.length - 1];
+            for(int j = newTeams.length - 1;j > 0; j--){
+                newTeams[j] = newTeams[(j-1)];
+            }
+            newTeams[1] = temp;
+            homeAwaySeperate(newTeams, homeTeams, awayTeams);
+            planWeek(homeTeams, awayTeams);
+            //printArr(newTeams);
+            //printArr(homeTeams);
+            //printArr(awayTeams);
+        }
+        
+        // SECOND PART
+        
+        matchQueue.printQueue();
+    }
+    
+    private void reverseArr(Team[] tArr){
+        MStack stack = new MStack(tArr.length);      
+        for(Team t: tArr){
+            stack.push_(t);
+        }
+        for(int i = 0;i < tArr.length;i++){
+            Team t = stack.pop_();
+        }
+        
+    }
+    
+    private void planWeek(Team[] home, Team[] away){
+        for(int i = 0; i < home.length; i++){
+            matchQueue.enqueue(home[i], away[i]);
+        }
+    }
+      
+    private void homeAwaySeperate(Team[] teams, Team[] homeTeams, Team[] awayTeams){
+        int j = 0;
+        for(int i = 0;i < teams.length;i++){
+            if(i < (teams.length / 2)){
+                homeTeams[i] = teams[i];
             }else{
-                awayTeams[i % awayTeams.length] = newTeams[i];
+                awayTeams[i % awayTeams.length] = teams[teams.length - 1 - j];
+                j++;                       
             }
         }
-
-        
-        
-        printArr(homeTeams);
-        printArr(awayTeams);
     }
     
     public void printArr(Team[] ta){
         for(int i = 0; i < ta.length; i++){
-            System.out.println(ta[i].teamName);
+            System.out.print(ta[i].teamName + " ");
         }
         System.out.println("");
     }
