@@ -4,8 +4,11 @@ public class MaxHeap {
     public int[] heap;
     public int currentSize;
     
+    public Team[] teamHeap;   
+    
     public MaxHeap(int maxSize){
         this.heap = new int[maxSize];
+        this.teamHeap = new Team[maxSize];
         this.currentSize = -1;
         this.maxSize = maxSize;
     }
@@ -22,22 +25,29 @@ public class MaxHeap {
         return 2*i + 2;
     }
     
-    public void insert(int score) {
+    public void insert(Team team) {
         if (currentSize == maxSize - 1) {
             System.out.println("The heap is full. Cannot insert");
             return;
         }
 
         currentSize++;
-        this.heap[currentSize] = score;
+        this.heap[currentSize] = team.totalPoint;
+        this.teamHeap[currentSize] = team;
         int temp;
-
+        Team tTemp;
+        
         int currentIndex = currentSize;
          
         while (this.heap[this.parent(currentIndex)] < this.heap[currentIndex]) {
             temp = heap[currentIndex]; 
+            tTemp = teamHeap[currentIndex];
             heap[currentIndex] = heap[parent(currentIndex)];
             heap[parent(currentIndex)] = temp;
+            
+            teamHeap[currentIndex] = teamHeap[parent(currentIndex)];
+            teamHeap[parent(currentIndex)] = tTemp;
+            
             currentIndex = this.parent(currentIndex);
         }
     }
@@ -61,6 +71,11 @@ public class MaxHeap {
             int temp = heap[i];
             heap[i] = heap[biggest];
             heap[biggest] = temp;
+                       
+            Team tTemp = teamHeap[i];
+            teamHeap[i] = teamHeap[biggest];
+            teamHeap[biggest] = tTemp;
+            
             maxHeapify(biggest);
         }
     }
@@ -87,18 +102,21 @@ public class MaxHeap {
         }
     }
 
-    public int extractMax() {
+    public Team extractMax() {
         if(currentSize < 0){
             System.out.println("Heap is empty!");
         }
         
         int maxItem = this.heap[0];
+        Team maxTeam = this.teamHeap[0];
 
         this.heap[0] = this.heap[currentSize];
+        this.teamHeap[0] = this.teamHeap[currentSize];
+        
         currentSize = currentSize - 1;
 
         maxHeapify(0);
-        return maxItem;
+        return maxTeam;
     }
     
     public int getMax(){

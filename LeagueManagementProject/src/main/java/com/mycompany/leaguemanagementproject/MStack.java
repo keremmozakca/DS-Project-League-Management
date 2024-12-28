@@ -1,14 +1,14 @@
 package com.mycompany.leaguemanagementproject;
 public class MStack {
-    public Match[] matchResults;
+    public MatchResult[] matchResults;
     public int top;
   
     public MStack(int size){
-        this.matchResults = new Match[size];
+        this.matchResults = new MatchResult[size];
         this.top = -1;
     }
     
-    public void push(Match m){
+    public void push(MatchResult m){
         if(this.isFull()){
             System.out.println("Stack is full!");
         }
@@ -18,7 +18,7 @@ public class MStack {
         }
     }
        
-    public Match pop(){
+    public MatchResult pop(){
         if(this.isEmpty()){
             System.out.println("Stack is empty!");
             return null;

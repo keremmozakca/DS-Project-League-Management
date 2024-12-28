@@ -64,10 +64,11 @@ public class Match {
                 }
             }
         }
+        saveResult(homeScore, awayScore, home, away);
     }
     
-    public void saveResult(){
-        
+    public void saveResult(int homeScor, int awayScor, Team home, Team away){
+        result = new MatchResult(homeScor, awayScor, home, away);
     }
     
 }

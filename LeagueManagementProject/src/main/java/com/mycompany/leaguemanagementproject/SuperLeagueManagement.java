@@ -4,6 +4,10 @@ package com.mycompany.leaguemanagementproject;
 public class SuperLeagueManagement {
     
     MQueue matchQueue = new MQueue();
+    MStack matchResults = new MStack(310);
+    MaxHeap leaderTable = new MaxHeap(20);
+    
+    Team[] teams;
     
     public SuperLeagueManagement(){
         // Galatasaray
@@ -279,7 +283,7 @@ public class SuperLeagueManagement {
         
         // Advantage Declaring
         double sum = 0;
-        Team[] teams = {team1, team2, team3, team4, team5, team6, team7, 
+        teams = new Team[]{team1, team2, team3, team4, team5, team6, team7, 
                         team8, team9, team10, team11, team12, team13, team14,
                         team15, team16, team17, team18};       
         for(Team team: teams){
@@ -366,6 +370,39 @@ public class SuperLeagueManagement {
     public void PlayNextMatch(){
         Match currentMatch = matchQueue.dequeue();
         currentMatch.playMatch();
+        matchResults.push(currentMatch.result);
+    }
+    
+    public void showLeaderTable(){
+        createPoints(teams);
+        
+        for(Team t: teams){
+            leaderTable.insert(t);
+        }
+        while(leaderTable.currentSize >= 0){
+            Team team = leaderTable.extractMax();
+            System.out.println(team);
+        }
+    }
+    
+    private void createPoints(Team[] teams){
+        for(Team t: teams){
+            t.totalPoint = 0;
+            t.goalDiff = 0;
+        }
+        MStack results = new MStack(310);
+        results.matchResults = this.matchResults.matchResults.clone();
+        results.top = this.matchResults.top;              
+        while(!results.isEmpty()){
+            MatchResult mResult = matchResults.pop();
+            if(mResult.winner == null){
+                mResult.homeT.totalPoint++;
+                mResult.awayT.totalPoint++;
+            }else{
+                mResult.winner.totalPoint += 3;
+                mResult.winner.goalDiff += (mResult.goalDiff);
+            }
+        }
     }
     
     private Team[] reverseArr(Team[] tArr){
