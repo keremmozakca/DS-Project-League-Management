@@ -363,6 +363,11 @@ public class SuperLeagueManagement {
         //return matchQueue;
     }
     
+    public void PlayNextMatch(){
+        Match currentMatch = matchQueue.dequeue();
+        currentMatch.playMatch();
+    }
+    
     private Team[] reverseArr(Team[] tArr){
         Team[] reversedArray = new Team[tArr.length];
         int j = 0;

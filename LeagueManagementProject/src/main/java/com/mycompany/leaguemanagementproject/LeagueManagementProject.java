@@ -3,7 +3,11 @@ public class LeagueManagementProject {
 
     public static void main(String[] args) {
         SuperLeagueManagement s = new SuperLeagueManagement();
-        s.matchQueue.printQueue();
+        //s.matchQueue.printQueue();
+        
+        s.PlayNextMatch();
+        System.out.println("");
+        s.PlayNextMatch();
         
         /*TeamHashTable table = new TeamHashTable(41);
         Team t1 = new Team("Galatasaray", "GS", 100);
