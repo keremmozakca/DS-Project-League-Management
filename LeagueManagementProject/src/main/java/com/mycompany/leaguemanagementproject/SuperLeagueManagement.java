@@ -352,33 +352,31 @@ public class SuperLeagueManagement {
         }
         
         // SECOND PART
-        /*
+        
         newTeams = reverseArr(newTeamsCopy);
         homeAwaySeperate(newTeams, homeTeams, awayTeams);
         planWeek(homeTeams, awayTeams);
-        for(int i = 0;i < newTeams.length -2; i++){
-            Team temp = newTeams[newTeams.length - 1];
-            for(int j = newTeams.length - 1;j > 0; j--){
-                newTeams[j] = newTeams[(j-1)];
+
+        for (int i = 1; i < newTeams.length - 1; i++) { 
+            Team temp = newTeams[1];  
+            for (int j = 1; j < newTeams.length - 1; j++) { 
+                newTeams[j] = newTeams[j + 1]; 
             }
-            newTeams[1] = temp;
+            newTeams[newTeams.length - 1] = temp; 
             homeAwaySeperate(newTeams, homeTeams, awayTeams);
             planWeek(homeTeams, awayTeams);
-        }*/
+        }
         matchQueue.printQueue();
     }
     
     private Team[] reverseArr(Team[] tArr){
-        MStack stack = new MStack(tArr.length); 
-        Team[] reversedArr = new Team[tArr.length];
-        for(Team t: tArr){
-            stack.push_(t);
+        Team[] reversedArray = new Team[tArr.length];
+        int j = 0;
+        for(int i = tArr.length - 1; i > -1; i--){
+            reversedArray[j] = tArr[i];
+            j++;
         }
-        for(int i = 0;i < tArr.length;i++){
-            Team t = stack.pop_();
-            reversedArr[i] = t;
-        }
-        return reversedArr;
+        return reversedArray;       
     }
     
     private void planWeek(Team[] home, Team[] away){

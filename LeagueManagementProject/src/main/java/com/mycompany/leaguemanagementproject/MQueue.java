@@ -42,14 +42,16 @@ public class MQueue {
         if(!isEmpty()){
             Match current = this.front;
             int weekCounter = 0;
+            int matchCounter = 0;
             while(current != null){
-                if(weekCounter % 9 == 0){
-                    System.out.println("");
+                if(matchCounter % 9 == 0){
+                    System.out.println("\nWEEK " + ((weekCounter + 1)) + "\n");
+                    weekCounter++;
                 }
                 System.out.println(current.home.teamName + " and " + current.away.teamName);
                 //(current.next != null ? " -> " : ""));
                 current = current.nextMatch;
-                weekCounter++;
+                matchCounter++;
             }
             System.out.println();
         }
