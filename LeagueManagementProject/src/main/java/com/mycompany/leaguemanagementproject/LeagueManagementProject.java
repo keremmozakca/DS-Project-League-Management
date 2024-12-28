@@ -37,5 +37,27 @@ public class LeagueManagementProject {
         
         String a = tree.findPlayerByBinarySearchTree(3);
         System.out.println(a);*/
+        
+        /*MaxHeap heap = new MaxHeap(15);
+        
+        heap.insert(0);
+        heap.insert(40);
+        heap.insert(4);
+        heap.insert(32);
+        heap.insert(24);
+        heap.insert(2);
+        heap.insert(3);
+        heap.insert(11);
+        heap.insert(12);
+        
+        heap.printHeap();
+        
+        heap.extractMax();
+        
+        heap.printHeap();
+        
+        heap.extractMax();
+        
+        heap.printHeap();*/
     }
 }
