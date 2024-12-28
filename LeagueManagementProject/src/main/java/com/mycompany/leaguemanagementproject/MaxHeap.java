@@ -49,20 +49,14 @@ public class MaxHeap {
 
         int biggest = i;
 
-        // check if the left node is smaller than the current node
         if (left <= currentSize && heap[left] > heap[biggest]) {
             biggest = left;
         }
 
-        // check if the right node is bigger than the current node 
-        // or left node
         if (right <= currentSize && heap[right] > heap[biggest]) {
             biggest = right;
         }
 
-        // swap the biggest node with the current node 
-        // and repeat this process until the current node is bigger than 
-        // the right and the left node
         if (biggest != i) {
             int temp = heap[i];
             heap[i] = heap[biggest];
@@ -70,8 +64,29 @@ public class MaxHeap {
             maxHeapify(biggest);
         }
     }
+    
+    public void maxHeapifyTemp(int[] heap, int size, int i) {
+        int left = 2 * i + 1;
+        int right = 2 * i + 2;
+        int biggest = i;
 
-    // deletes the max item and return
+        if (left <= size && heap[left] > heap[biggest]) {
+            biggest = left;
+        }
+
+        if (right <= size && heap[right] > heap[biggest]) {
+            biggest = right;
+        }
+
+        if (biggest != i) {
+            int temp = heap[i];
+            heap[i] = heap[biggest];
+            heap[biggest] = temp;
+
+            maxHeapifyTemp(heap, size, biggest);
+        }
+    }
+
     public int extractMax() {
         if(currentSize < 0){
             System.out.println("Heap is empty!");
@@ -79,12 +94,9 @@ public class MaxHeap {
         
         int maxItem = this.heap[0];
 
-        // replace the first item with the last item
         this.heap[0] = this.heap[currentSize];
         currentSize = currentSize - 1;
 
-        // maintain the heap property by heapifying the 
-        // first item
         maxHeapify(0);
         return maxItem;
     }
@@ -93,10 +105,25 @@ public class MaxHeap {
         return heap[0];
     }
        
-    // prints the heap
     public void printHeap() {
         for (int i = 0; i <= currentSize ; i++) {
-            System.out.print(heap[i] + " ");
+            System.out.println(heap[i] + " ");
+        }
+        System.out.println();
+    }
+    
+    public void printHeapSorted(){
+        int[] tempHeap = new int[maxSize];
+        System.arraycopy(heap, 0, tempHeap, 0, currentSize + 1);
+        int tempSize = currentSize;
+        
+        System.out.println("Sorted: ");
+        while(tempSize >= 0){
+            System.out.println(tempHeap[0] + " ");
+            tempHeap[0] = tempHeap[tempSize];
+            tempSize--;
+            
+            maxHeapifyTemp(tempHeap, tempSize, 0);
         }
         System.out.println();
     }
