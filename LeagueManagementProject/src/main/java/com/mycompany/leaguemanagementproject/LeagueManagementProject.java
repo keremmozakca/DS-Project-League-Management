@@ -38,7 +38,7 @@ public class LeagueManagementProject {
         String a = tree.findPlayerByBinarySearchTree(3);
         System.out.println(a);*/
         
-        MaxHeap heap = new MaxHeap(15);
+        /*MaxHeap heap = new MaxHeap(15);
         
         heap.insert(0);
         heap.insert(40);
@@ -58,8 +58,6 @@ public class LeagueManagementProject {
         
         heap.extractMax();
         
-        heap.printHeap();
-        
-        System.out.println(heap.getMax());
+        heap.printHeap();*/
     }
 }
