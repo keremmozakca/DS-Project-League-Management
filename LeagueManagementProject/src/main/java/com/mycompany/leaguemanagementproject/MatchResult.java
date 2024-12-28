@@ -1,4 +1,6 @@
+
 package com.mycompany.leaguemanagementproject;
-public class MatchResults {
+
+public class MatchResult {
     
 }

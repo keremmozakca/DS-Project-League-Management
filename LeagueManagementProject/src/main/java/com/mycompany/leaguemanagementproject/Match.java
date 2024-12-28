@@ -1,17 +1,19 @@
 
 package com.mycompany.leaguemanagementproject;
 
-public class Match extends Node{
+public class Match {
     
     public Team home;
     public Team away;
     
     public Match nextMatch;
     
+    public MatchResult result;
+    
     public Match(Team home, Team away){
         this.home = home;
         this.away = away;
-        this.next = null;
+        this.nextMatch = null;
     }
     
     public void playMatch(){
@@ -62,6 +64,10 @@ public class Match extends Node{
                 }
             }
         }
+    }
+    
+    public void updatePoints(){
+        
     }
     
 }
