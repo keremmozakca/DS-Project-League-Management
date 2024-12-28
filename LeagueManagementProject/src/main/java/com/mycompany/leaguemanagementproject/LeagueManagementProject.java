@@ -64,6 +64,8 @@ public class LeagueManagementProject {
         
         */
         
+        
+        /*
         Scanner sc = new Scanner(System.in);
         
         while(true){
@@ -108,6 +110,13 @@ public class LeagueManagementProject {
                     break;
             }
         }
+        */
+        
+        while(!s.matchQueue.isEmpty()){
+            s.PlayNextMatch();
+        }
+        
+        s.showLeaderTable();
     }
     
 }

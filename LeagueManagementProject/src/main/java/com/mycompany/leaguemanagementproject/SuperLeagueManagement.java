@@ -375,13 +375,15 @@ public class SuperLeagueManagement {
     
     public void showLeaderTable(){
         createPoints(teams);
-        
+        int counter = 0;
+        System.out.println("");
         for(Team t: teams){
             leaderTable.insert(t);
         }
         while(leaderTable.currentSize >= 0){
+            counter++;
             Team team = leaderTable.extractMax();
-            System.out.println(team);
+            System.out.println(counter + ". " + team.teamName + " - Points: " + team.totalPoint);
         }
     }
     
@@ -394,7 +396,7 @@ public class SuperLeagueManagement {
         results.matchResults = this.matchResults.matchResults.clone();
         results.top = this.matchResults.top;              
         while(!results.isEmpty()){
-            MatchResult mResult = matchResults.pop();
+            MatchResult mResult = results.pop();
             if(mResult.winner == null){
                 mResult.homeT.totalPoint++;
                 mResult.awayT.totalPoint++;
