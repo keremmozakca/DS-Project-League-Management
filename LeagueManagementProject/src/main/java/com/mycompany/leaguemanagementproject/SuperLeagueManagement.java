@@ -294,7 +294,7 @@ public class SuperLeagueManagement {
         
         //Match m = new Match(team10, team2);
         //m.playMatch();
-        //scheduleMatch(teams);
+        scheduleMatch(teams);
     }
     
     public double teamAdvantageAlgorithm(Team team){
@@ -326,7 +326,7 @@ public class SuperLeagueManagement {
         return (totalPoint / 11);
     }
 
-    public MQueue scheduleMatch(Team[] teams){
+    public void scheduleMatch(Team[] teams){
         Team[] newTeams = shuffle(teams);
         Team[] newTeamsCopy = newTeams.clone();
         Team[] homeTeams = new Team[9];
@@ -360,7 +360,7 @@ public class SuperLeagueManagement {
             homeAwaySeperate(newTeams, homeTeams, awayTeams);
             planWeek(homeTeams, awayTeams);
         }
-        return matchQueue;
+        //return matchQueue;
     }
     
     private Team[] reverseArr(Team[] tArr){

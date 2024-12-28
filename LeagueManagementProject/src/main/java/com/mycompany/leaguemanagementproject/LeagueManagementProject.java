@@ -3,6 +3,7 @@ public class LeagueManagementProject {
 
     public static void main(String[] args) {
         SuperLeagueManagement s = new SuperLeagueManagement();
+        s.matchQueue.printQueue();
         
         /*TeamHashTable table = new TeamHashTable(41);
         Team t1 = new Team("Galatasaray", "GS", 100);
@@ -38,6 +39,7 @@ public class LeagueManagementProject {
         String a = tree.findPlayerByBinarySearchTree(3);
         System.out.println(a);*/
         
+        /*
         MaxHeap heap = new MaxHeap(15);
         
         heap.insert(0);
@@ -54,5 +56,7 @@ public class LeagueManagementProject {
         heap.insert(1);
         
         heap.printHeapSorted();
+        
+        */
     }
 }

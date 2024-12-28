@@ -66,7 +66,7 @@ public class Match {
         }
     }
     
-    public void updatePoints(){
+    public void saveResult(){
         
     }
     
