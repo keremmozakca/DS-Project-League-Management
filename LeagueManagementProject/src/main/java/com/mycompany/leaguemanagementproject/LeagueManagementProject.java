@@ -1,4 +1,5 @@
 package com.mycompany.leaguemanagementproject;
+import java.util.Scanner;
 public class LeagueManagementProject {
 
     public static void main(String[] args) {
@@ -62,5 +63,51 @@ public class LeagueManagementProject {
         heap.printHeapSorted();
         
         */
+        
+        Scanner sc = new Scanner(System.in);
+        
+        while(true){
+            System.out.println("Welcome to the League Management System! Plese select a operation.");
+            System.out.println("Enter 1 to play match.");
+            System.out.println("Enter 2 to view leader table.");
+            System.out.println("Enter 3 to view all teams.");
+            System.out.println("Enter 4 to find player.");
+            System.out.println("Enter 5 to exit from the system.");
+            
+            int choice = sc.nextInt();            
+            sc.nextLine();
+            
+            switch(choice){
+                case 1:
+                    s.PlayNextMatch();
+                    while(true){
+                        System.out.println("Enter for next match.");
+                        String input = sc.nextLine();
+                        if(input.isEmpty()){
+                            s.PlayNextMatch();
+                        }
+                        else
+                            break;
+                        }
+                    break;
+                case 2:
+                    System.out.println("Lider tablosunu görüntüleme işlemi gelecek");
+                    break;
+                case 3:
+                    System.out.println("Hash map ile ilgili taraf gelecek superleaguemanagementte eklenip");
+                    break;
+                case 4:
+                    System.out.println("Binary search three player ile ilgili taraf gelecek superleaguemanagementte eklenip");
+                    break;
+                case 5:
+                    System.out.println("Existing...");
+                    sc.close();
+                    return;
+                default:
+                    System.out.println("Invalid choice!");
+                    break;
+            }
+        }
     }
+    
 }
