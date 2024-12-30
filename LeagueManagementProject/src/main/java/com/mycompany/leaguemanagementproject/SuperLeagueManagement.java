@@ -295,6 +295,7 @@ public class SuperLeagueManagement {
         
         for(Team team: teams){
             team.advantage = (int)((teamAdvantageAlgorithm(team) - average) * 10);
+            //team.advantage = Math.abs((int)((teamAdvantageAlgorithm(team) - average) * 10));
         }
          
         // FOR SEARCING
@@ -404,6 +405,7 @@ public class SuperLeagueManagement {
             Team team = leaderTable.extractMax();
             System.out.println(counter + ". " + team.teamName + " - Points: " + team.totalPoint);
         }
+        System.out.println("");
     }
     
     private void createPoints(Team[] teams){

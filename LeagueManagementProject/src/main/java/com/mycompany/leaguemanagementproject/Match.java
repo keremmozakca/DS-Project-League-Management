@@ -46,6 +46,7 @@ public class Match {
                 if(rndValueForHomePlayer > rndValueForAwayKeeper){
                     homeScore++;
                     System.out.println("-> It was a goal.\n");
+                    homePlayer.addGoal();
                     System.out.printf("%-5s : %-5s\n", home.teamName, away.teamName);
                     System.out.printf("%-2d : %-2d\n", homeScore, awayScore);
                 }
@@ -60,6 +61,7 @@ public class Match {
                 if(rndValueForAwayPlayer > rndValueForHomeKeeper){
                     awayScore++;
                     System.out.println("-> It was a goal.\n");
+                    awayPlayer.addGoal();
                     System.out.printf("%-5s : %-5s\n", home.teamName, away.teamName);
                     System.out.printf("%-2d : %-2d\n", homeScore, awayScore);
                 }
@@ -71,6 +73,7 @@ public class Match {
             }
         }
         saveResult(homeScore, awayScore, home, away);
+        System.out.println("------------------------------------");
     }
     
     public void saveResult(int homeScor, int awayScor, Team home, Team away){

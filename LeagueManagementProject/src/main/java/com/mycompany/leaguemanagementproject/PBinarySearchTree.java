@@ -61,7 +61,7 @@ public class PBinarySearchTree {
         if(root != null){
             printPostorder(root.leftPlayer);
             printPostorder(root.rightPlayer);
-            System.out.println(root.playerName);
+            System.out.println(root.playerName + " (ID: " + root.playerID + ")");
         }
     }
 }

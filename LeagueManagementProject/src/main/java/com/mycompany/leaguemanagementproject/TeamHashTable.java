@@ -42,8 +42,9 @@ public class TeamHashTable {
             int ch = (int)(shortName.charAt(i));
             sumHash += ch * Math.pow(32, shortName.length() - 1 - i);
         }
-        
-        return (sumHash % this.table.length);
+        //
+        // 2
+        return Math.abs(sumHash % this.table.length);
     }
     
     public void displayTeamTable(){

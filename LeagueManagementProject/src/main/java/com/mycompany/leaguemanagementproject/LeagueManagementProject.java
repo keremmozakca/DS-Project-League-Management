@@ -3,139 +3,139 @@ import java.util.Scanner;
 public class LeagueManagementProject {
 
     public static void main(String[] args) {
-        SuperLeagueManagement s = new SuperLeagueManagement();
-        //s.matchQueue.printQueue();
-        
-        s.PlayNextMatch();
-        System.out.println("");
-        s.PlayNextMatch();
-        
-        /*TeamHashTable table = new TeamHashTable(41);
-        Team t1 = new Team("Galatasaray", "GS", 100);
-        Team t2 = new Team("Fenerbahçe", "FB", 99);
-        Team t3 = new Team("Beşiktaş", "BJK", 98);
-        Team t4 = new Team("AdanaSpor", "ADS", 97);
-        Team t5 = new Team("KonyaSpor", "KS", 96);
+        Scanner input = new Scanner(System.in);
 
-        table.putLinear(t1);
-        table.displayTeamTable();
-        table.putLinear(t2);
-        table.displayTeamTable();
-        table.putLinear(t3);
-        table.displayTeamTable();
-        table.putLinear(t4);
-        table.displayTeamTable();
-        table.putLinear(t5);
-        table.displayTeamTable();*/
+        SuperLeagueManagement league25 = new SuperLeagueManagement(); 
         
-        /*Player p1 = new Player("Ali", 1, "GoalKeeper", 100);
-        Player p2 = new Player("Ahmet", 2, "dsdasds", 100);
-        Player p3 = new Player("Cabbar", 3, "adsasdasd", 100);
-        Player p4 = new Player("Yasin", 4, "adasdasdasd", 100);
-        Player p5 = new Player("Niyazi", 5, "dasdasdasdas", 100);
-        
-        PBinarySearchTree tree = new PBinarySearchTree();
-        tree.insert(p1);
-        tree.insert(p2);
-        tree.insert(p3);
-        tree.insert(p4);
-        tree.insert(p5);
-        
-        Player a = tree.findPlayerByBinarySearchTree(4);
-        System.out.println(a.playerName);*/
-        
-        Team t = s.findTeam("SMS");
-        if(t != null){
-            System.out.println(t.teamName);
-        } 
-        Player p = t.findPlayerByBST(1);
-        if(p != null){
-            System.out.println(p.playerName);
-        } else{
-            System.out.println("Bulunamadı");
-        }
-        System.out.println("");
-        
-        t.playertree.printPostorder(t.playertree.root);
-                
-        /*Player pl = t.playertree.root;
-        System.out.println(pl.playerName);*/
-        
-        //s.TeamTable.displayTeamTable();
         /*
-        MaxHeap heap = new MaxHeap(15);
-        
-        heap.insert(0);
-        heap.insert(40);
-        heap.insert(4);
-        heap.insert(4);
-        heap.insert(32);
-        heap.insert(24);
-        heap.insert(2);
-        heap.insert(3);
-        heap.insert(11);
-        heap.insert(12);
-        heap.insert(100);
-        heap.insert(1);
-        
-        heap.printHeapSorted();
-        
+        String log = input.nextLine();
+                    Team teamSearched = league25.findTeam(log);
+                    if(teamSearched != null){
+                        System.out.println("Team: "+ teamSearched.teamName);
+                        System.out.println("Short Name: "+ teamSearched.shortName);
+                        System.out.println("Advantage: "+ teamSearched.advantage);
+                        System.out.println("Total Point: "+ teamSearched.totalPoint);
+                        System.out.println("Goaldiff: "+ teamSearched.goalDiff);
+                        System.out.println("");
+                        System.out.println("    PLAYERS / IDs   ");
+                        System.out.println("--------------------");                        
+                        teamSearched.playertree.printPostorder(teamSearched.playertree.root);
+                        System.out.println("\nWould you like to show all details about players? (y/n)");
+                        log = input.nextLine();
+                        if(log.toLowerCase().equals("y")){
+                            System.out.print("\nSEARCH PLAYER: ");
+                            int log_ = input.nextInt();
+                            Player player_ = teamSearched.playertree.findPlayerByBinarySearchTree(log_);
+                            if(player_ != null){
+                                System.out.println("Player Name: "+ player_.playerName);
+                                System.out.println("Player ID: "+ player_.playerID);
+                                System.out.println("Position: "+ player_.position);
+                                System.out.println("Value: "+ player_.value);
+                                System.out.println("Goals: "+ player_.goals + "\n");
+                            }else{
+                                System.out.println("No Player.");
+                            }
+                        }else{
+                        }
+                    }else{
+                        System.out.println("It is not found.");
+                    }
         */
         
         
-        /*
-        Scanner sc = new Scanner(System.in);
         
         while(true){
-            System.out.println("Welcome to the League Management System! Plese select a operation.");
-            System.out.println("Enter 1 to play match.");
-            System.out.println("Enter 2 to view leader table.");
-            System.out.println("Enter 3 to view all teams.");
-            System.out.println("Enter 4 to find player.");
-            System.out.println("Enter 5 to exit from the system.");
-            
-            int choice = sc.nextInt();            
-            sc.nextLine();
-            
+            System.out.println("Welcome to the League Management System! Plese select a operation.\n");
+            if(!league25.matchQueue.isEmpty()){
+                System.out.println("NEXT MATCH: " + league25.matchQueue.front.home.teamName + " - " + league25.matchQueue.front.away.teamName + "\n");
+            }            
+            System.out.println("- Enter 1 to play match.");
+            System.out.println("- Enter 2 to view leader table.");
+            System.out.println("- Enter 3 to view all teams.");
+            System.out.println("- Enter 4 to find team.");
+            System.out.println("- Enter 5 to show fixture.");
+            System.out.println("- Enter 6 to play all matches.");
+            System.out.println("- Enter 7 to exit from the system.");
+           
+            int choice = input.nextInt();            
+            //input.nextLine();           
             switch(choice){
-                case 1:
-                    s.PlayNextMatch();
+                case 1 -> {
                     while(true){
-                        System.out.println("Enter for next match.");
-                        String input = sc.nextLine();
-                        if(input.isEmpty()){
-                            s.PlayNextMatch();
+                        System.out.println("Enter for next match.(Any key for main menu)");
+                        String log = input.nextLine();
+                        if(log.isEmpty()){
+                            league25.PlayNextMatch();
                         }
                         else
                             break;
+                    }
+                    continue;
+                }
+                case 2 -> league25.showLeaderTable();
+                case 3 -> league25.printArr(league25.teams);
+                case 4 -> {
+                    System.out.println("SHORT NAMES FOR TEAMS");
+                    System.out.println("---------------------");
+                    for(int i = 0; i < league25.teams.length; i++){
+                        System.out.println(league25.teams[i].teamName + " : " + 
+                                           league25.teams[i].shortName);
+                    }
+                    System.out.print("\nSEARCH A TEAM WITH SHORT NAME: ");
+                    String log = input.nextLine();
+                    Team teamSearched = league25.findTeam(log);
+                    if(teamSearched != null){
+                        System.out.println("Team: "+ teamSearched.teamName);
+                        System.out.println("Short Name: "+ teamSearched.shortName);
+                        System.out.println("Advantage: "+ teamSearched.advantage);
+                        System.out.println("Total Point: "+ teamSearched.totalPoint);
+                        System.out.println("Goaldiff: "+ teamSearched.goalDiff);
+                        System.out.println("");
+                        System.out.println("    PLAYERS / IDs   ");
+                        System.out.println("--------------------");                        
+                        teamSearched.playertree.printPostorder(teamSearched.playertree.root);
+                        System.out.println("\nWould you like to show all details about players? (y/n)");
+                        log = input.nextLine();
+                        if(log.toLowerCase().equals("y")){
+                            System.out.print("\nSEARCH PLAYER: ");
+                            int log_ = input.nextInt();
+                            Player player_ = teamSearched.playertree.findPlayerByBinarySearchTree(log_);
+                            if(player_ != null){
+                                System.out.println("Player Name: "+ player_.playerName);
+                                System.out.println("Player ID: "+ player_.playerID);
+                                System.out.println("Position: "+ player_.position);
+                                System.out.println("Value: "+ player_.value);
+                                System.out.println("Goals: "+ player_.goals + "\n");
+                                continue;
+                            }else{
+                                System.out.println("No Player.");
+                                continue;
+                            }
+                        }else{
+                            continue;
                         }
-                    break;
-                case 2:
-                    System.out.println("Lider tablosunu görüntüleme işlemi gelecek");
-                    break;
-                case 3:
-                    System.out.println("Hash map ile ilgili taraf gelecek superleaguemanagementte eklenip");
-                    break;
-                case 4:
-                    System.out.println("Binary search three player ile ilgili taraf gelecek superleaguemanagementte eklenip");
-                    break;
-                case 5:
+                    }else{
+                        System.out.println("It is not found.");
+                    }
+                }
+                case 5 -> {
+                    league25.matchQueue.printQueue();
+                    continue;
+                }
+                case 6 -> {
+                    while(!league25.matchQueue.isEmpty()){
+                        league25.PlayNextMatch();
+                    }
+                }
+                case 7 -> {
                     System.out.println("Existing...");
-                    sc.close();
+                    input.close();
                     return;
-                default:
-                    System.out.println("Invalid choice!");
-                    break;
+                }
+                default -> System.out.println("Invalid choice!");
             }
         }
-        */
-        
-        /*
-        while(!s.matchQueue.isEmpty()){
-            s.PlayNextMatch();
-        }
-        
-        s.showLeaderTable();*/
+        //
     }
     
 }
