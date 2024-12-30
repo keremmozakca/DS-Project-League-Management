@@ -42,23 +42,29 @@ public class Match {
             double rndValueForAwayKeeper = (Math.random() * ((100 - minValueForAwayKeeper) + 1)) + minValueForAwayKeeper;
             
             if(i % 2 == 1){
+                System.out.println("\n"+ homePlayer.playerName + " from " + home.teamName + " took a shot.");
                 if(rndValueForHomePlayer > rndValueForAwayKeeper){
                     homeScore++;
+                    System.out.println("\nIt was a goal.");
                     System.out.printf("%-5s : %-5s\n", home.teamName, away.teamName);
                     System.out.printf("%-2d : %-2d\n", homeScore, awayScore);
                 }
                 else{
+                    System.out.println("\nGoal missed.");
                     System.out.printf("%-5s : %-5s\n", home.teamName, away.teamName);
                     System.out.printf("%-2d : %-2d\n", homeScore, awayScore);
                 }
             }
             else{
+                System.out.println("\n"+ awayPlayer.playerName + " from " + away.teamName + " took a shot.");
                 if(rndValueForAwayPlayer > rndValueForHomeKeeper){
                     awayScore++;
+                    System.out.println("\nIt was a goal.");
                     System.out.printf("%-5s : %-5s\n", home.teamName, away.teamName);
                     System.out.printf("%-2d : %-2d\n", homeScore, awayScore);
                 }
                 else{
+                    System.out.println("\nGoal missed.");
                     System.out.printf("%-5s : %-5s\n", home.teamName, away.teamName);
                     System.out.printf("%-2d : %-2d\n", homeScore, awayScore);
                 }
