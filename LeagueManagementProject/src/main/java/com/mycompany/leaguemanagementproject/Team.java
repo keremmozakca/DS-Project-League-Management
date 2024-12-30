@@ -61,22 +61,11 @@ public class Team{
         return current;
     }
     
-    public Player findPlayerByBST(int playerId){
-        PBinarySearchTree tree = new PBinarySearchTree();
-        Player current = tree.root;
-        
-        while(current != null){
-            if(current.playerID == playerId){
-                return current;
-            }
-            else if(playerId < current.playerID){
-                current = current.leftPlayer;
-            }
-            else{
-                current = current.rightPlayer;
-            }
-        }
-        
-        return null;        
+    public void addPlayer(Player p) {
+        this.playertree.insert(p);  
+    }
+    
+    public Player findPlayerByBST(int playerId) {
+        return this.playertree.findPlayerByBinarySearchTree(playerId);
     }
 }

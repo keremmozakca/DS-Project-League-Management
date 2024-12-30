@@ -56,4 +56,12 @@ public class PBinarySearchTree {
         
         return null;
     }
+    
+    public void printPostorder(Player root){
+        if(root != null){
+            printPostorder(root.leftPlayer);
+            printPostorder(root.rightPlayer);
+            System.out.println(root.playerName);
+        }
+    }
 }

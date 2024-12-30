@@ -6,6 +6,7 @@ public class SuperLeagueManagement {
     MQueue matchQueue = new MQueue();
     MStack matchResults = new MStack(310);
     MaxHeap leaderTable = new MaxHeap(20);
+    TeamHashTable TeamTable = new TeamHashTable(41);
     
     Team[] teams;
     
@@ -295,10 +296,28 @@ public class SuperLeagueManagement {
         for(Team team: teams){
             team.advantage = (int)((teamAdvantageAlgorithm(team) - average) * 10);
         }
+         
+        // FOR SEARCING
+        for(Team team: teams){
+            this.TeamTable.putLinear(team);
+            Player current = team.teamPlayers.head;
+            team.playertree.root = current;
+            current = current.nextPlayer;
+            while(current != null){
+                //System.out.println(current.playerName);
+                team.addPlayer(current);
+                current = current.nextPlayer;
+            }
+        }
         
         //Match m = new Match(team10, team2);
         //m.playMatch();
         scheduleMatch(teams);
+    }
+    
+    public Team findTeam(String shortName){
+        Team team = this.TeamTable.searchItem(shortName);
+        return team;
     }
     
     public double teamAdvantageAlgorithm(Team team){

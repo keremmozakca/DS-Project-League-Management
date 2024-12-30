@@ -43,13 +43,32 @@ public class TeamHashTable {
             sumHash += ch * Math.pow(32, shortName.length() - 1 - i);
         }
         
-        return (sumHash % this.table.length) % this.prime;
+        return (sumHash % this.table.length);
     }
     
     public void displayTeamTable(){
         System.out.println("Team Table:");
         for(int i = 0; i < this.table.length; i++){
             System.out.println(i + ": " + (table[i] != null ? table[i].teamName : "null"));
+        }
+    }
+    
+    public Team searchItem(String shortName){
+        int index = this.hash(shortName);
+        if(this.table[index] != null){
+            return this.table[index];
+        }else{
+            int currentIndex = index;
+            for(int i = 1; i != index; i++){
+                currentIndex = (currentIndex + i) % this.table.length;
+                if(this.table[currentIndex] != null){
+                    if(this.table[currentIndex].shortName.equals(shortName)){
+                        return this.table[currentIndex];
+                    }
+                }               
+            }
+            System.out.println("It is not found.");
+            return null;
         }
     }
 }

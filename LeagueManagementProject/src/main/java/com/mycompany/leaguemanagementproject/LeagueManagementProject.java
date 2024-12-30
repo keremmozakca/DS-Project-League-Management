@@ -41,9 +41,27 @@ public class LeagueManagementProject {
         tree.insert(p4);
         tree.insert(p5);
         
-        String a = tree.findPlayerByBinarySearchTree(3);
-        System.out.println(a);*/
+        Player a = tree.findPlayerByBinarySearchTree(4);
+        System.out.println(a.playerName);*/
         
+        Team t = s.findTeam("SMS");
+        if(t != null){
+            System.out.println(t.teamName);
+        } 
+        Player p = t.findPlayerByBST(1);
+        if(p != null){
+            System.out.println(p.playerName);
+        } else{
+            System.out.println("Bulunamadı");
+        }
+        System.out.println("");
+        
+        t.playertree.printPostorder(t.playertree.root);
+                
+        /*Player pl = t.playertree.root;
+        System.out.println(pl.playerName);*/
+        
+        //s.TeamTable.displayTeamTable();
         /*
         MaxHeap heap = new MaxHeap(15);
         
@@ -112,12 +130,12 @@ public class LeagueManagementProject {
         }
         */
         
-        
+        /*
         while(!s.matchQueue.isEmpty()){
             s.PlayNextMatch();
         }
         
-        s.showLeaderTable();
+        s.showLeaderTable();*/
     }
     
 }
