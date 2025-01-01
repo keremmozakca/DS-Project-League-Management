@@ -3,11 +3,15 @@ public class MQueue {
     public Match front;
     public Match rear;
     public int size;
+    public int currentWeek;
+    private int matchCount;
     
     public MQueue(){
         this.front = null;
         this.rear = null;
         this.size = 0;
+        this.currentWeek = 0;
+        this.matchCount = 0;
     }
     
     public void enqueue(Team home, Team away){
@@ -34,27 +38,45 @@ public class MQueue {
             Match rFront = this.front;
             this.front = this.front.nextMatch;
             size--;
+            if(++this.matchCount == 9){
+                this.matchCount = 0;
+                this.currentWeek++;
+            }
             return rFront;
         }
     }
     
-    public void printQueue(){
-        if(!isEmpty()){
-            Match current = this.front;
-            int weekCounter = 0;
-            int matchCounter = 0;
-            while(current != null){
-                if(matchCounter % 9 == 0){
-                    System.out.println("\nWEEK " + ((weekCounter + 1)) + "\n");
-                    weekCounter++;
+   public void printQueue() {
+        if (!isEmpty()) {
+            Match current = this.front; 
+            int weekCounter = currentWeek; 
+            int matchesPerWeek = 9; 
+            int matchCounter = 0; 
+
+            int totalMatchesPlayed = this.size - matchCounter; 
+            int remainingMatchesInCurrentWeek = totalMatchesPlayed % matchesPerWeek;
+
+            if (remainingMatchesInCurrentWeek > 0) {
+                System.out.println("\nWEEK " + (weekCounter + 1) + "\n");
+                for (int i = 0; i < remainingMatchesInCurrentWeek && current != null; i++) {
+                    System.out.println(current.home.teamName + " and " + current.away.teamName);
+                    current = current.nextMatch; 
+                    matchCounter++; 
                 }
-                System.out.println(current.home.teamName + " and " + current.away.teamName);
-                //(current.next != null ? " -> " : ""));
-                current = current.nextMatch;
-                matchCounter++;
+                weekCounter++; 
+            }       
+            
+            while (current != null) {            
+                System.out.println("\nWEEK " + (weekCounter + 1) + "\n");
+                for (int i = 0; i < matchesPerWeek && current != null; i++) {
+                    System.out.println(current.home.teamName + " and " + current.away.teamName);
+                    current = current.nextMatch; 
+                    matchCounter++; 
+                }
+                weekCounter++; 
             }
-            System.out.println();
         }
+        System.out.println("");
     }
     
     public boolean isEmpty(){

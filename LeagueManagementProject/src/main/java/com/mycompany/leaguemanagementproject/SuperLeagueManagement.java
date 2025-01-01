@@ -9,6 +9,7 @@ public class SuperLeagueManagement {
     TeamHashTable TeamTable = new TeamHashTable(41);
     
     Team[] teams;
+    Team champion;
     
     public SuperLeagueManagement(){
         // Galatasaray
@@ -282,6 +283,7 @@ public class SuperLeagueManagement {
         team18.newPlayerProfile("Yusuf Barası", 16, "Goalkeeper", 65);
         team18.newPlayerProfile("Abat Ayımbetov", 17, "Striker", 65);
         
+        this.champion = null;
         // Advantage Declaring
         double sum = 0;
         teams = new Team[]{team1, team2, team3, team4, team5, team6, team7, 
@@ -400,12 +402,40 @@ public class SuperLeagueManagement {
         for(Team t: teams){
             leaderTable.insert(t);
         }
+        Team[] championCandidates = new Team[2];
         while(leaderTable.currentSize >= 0){
             counter++;
             Team team = leaderTable.extractMax();
+            if(counter < 3){
+                championCandidates[counter - 1] = team;
+            }
             System.out.println(counter + ". " + team.teamName + " - Points: " + team.totalPoint);
         }
         System.out.println("");
+        if(this.matchQueue.isEmpty()){
+            Team candidate1 = championCandidates[0];
+            Team candidate2 = championCandidates[1];
+            if(candidate1.totalPoint > candidate2.totalPoint){
+                this.champion = candidate1;
+            }else if(candidate2.totalPoint > candidate1.totalPoint){
+                this.champion = candidate2;
+            }else{
+                if(candidate1.goalDiff > candidate2.goalDiff){
+                    this.champion = candidate1;
+                }else if(candidate2.goalDiff > candidate1.goalDiff){
+                    this.champion = candidate2;
+                }else{
+                    System.out.println("     CHAMPIONSHIP MATCH     ");
+                    System.out.println("----------------------------");
+                    do{
+                        Match championshipMatch = new Match(candidate2, candidate1);
+                        championshipMatch.playMatch();
+                        this.champion = championshipMatch.result.winner;
+                    }while(this.champion != null);                   
+                }
+            }
+            System.out.println("Champion is " + this.champion.teamName.toUpperCase() + "!\n");
+        }
     }
     
     private void createPoints(Team[] teams){
@@ -463,14 +493,14 @@ public class SuperLeagueManagement {
         System.out.println("");
     }
     
-    public boolean control(int n, int[] arr){
+    /*public boolean control(int n, int[] arr){
         for(int i = 0; i < arr.length; i++){
             if(arr[i] == n){
                 return false;
             }
         }
         return true;
-    }
+    }*/
     
     public Team[] shuffle(Team[] teamArray){        
         for (int i = 0; i < teamArray.length - 1; i++) {
