@@ -488,7 +488,7 @@ public class SuperLeagueManagement {
     
     public void printArr(Team[] ta){
         for(int i = 0; i < ta.length; i++){
-            System.out.print(ta[i].teamName + " ");
+            System.out.println(ta[i].teamName + " ");
         }
         System.out.println("");
     }
