@@ -29,7 +29,7 @@ public class Match {
         int homeScore = 0;
         
         for(int i = 1; i < shotNumber + 1; i++){
-            //Player bulma kısmı eklenecek.
+            
             Player homePlayer = home.findPlayer();
             Player awayPlayer = away.findPlayer();
             
