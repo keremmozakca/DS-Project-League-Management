@@ -97,7 +97,8 @@ public class LeagueManagementProject {
                     System.out.println("Existing...");
                     input.close();
                     return;
-                }
+                }               
+                //case 8: league25.TeamTable.displayTeamTable();
                 default : System.out.println("Invalid choice!"); break;
             }
         }       
