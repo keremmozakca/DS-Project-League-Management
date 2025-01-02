@@ -74,22 +74,21 @@ public class TeamHashTable {
     }*/
     
     public Team searchItem(String shortName) {
-    int index = hash(shortName);
-    int originalIndex = index;
+        int index = hash(shortName);
+        int originalIndex = index;
 
-    while (table[index] != null) {
-        if (table[index].shortName.equals(shortName)) {
-            return table[index];
-        }
-        index = (index + 1) % table.length;
+        while (table[index] != null) {
+            if (table[index].shortName.equals(shortName)) {
+                return table[index];
+            }
+            index = (index + 1) % table.length;
 
-        // Döngü başa sardığında aramayı durdur
-        if (index == originalIndex) {
-            break;
+            if (index == originalIndex) {
+                break;
+            }
         }
+        System.out.println("It is not found.");
+        return null;
     }
-    System.out.println("It is not found.");
-    return null;
-}
 
 }
