@@ -54,7 +54,7 @@ public class TeamHashTable {
         }
     }
     
-    public Team searchItem(String shortName){
+    /*public Team searchItem(String shortName){
         int index = this.hash(shortName);
         if(this.table[index] != null){
             return this.table[index];
@@ -71,5 +71,25 @@ public class TeamHashTable {
             System.out.println("It is not found.");
             return null;
         }
+    }*/
+    
+    public Team searchItem(String shortName) {
+    int index = hash(shortName);
+    int originalIndex = index;
+
+    while (table[index] != null) {
+        if (table[index].shortName.equals(shortName)) {
+            return table[index];
+        }
+        index = (index + 1) % table.length;
+
+        // Döngü başa sardığında aramayı durdur
+        if (index == originalIndex) {
+            break;
+        }
     }
+    System.out.println("It is not found.");
+    return null;
+}
+
 }
