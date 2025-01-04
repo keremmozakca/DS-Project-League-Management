@@ -5,6 +5,7 @@ public class MatchResult {
     Team homeT;
     Team awayT;
     Team winner;
+    Team loser;
     
     int goalDiff;
     int homeScore;
@@ -19,9 +20,11 @@ public class MatchResult {
         
         if(homeScore > awayScore){
             winner = homeT;
+            loser = awayT;
             this.goalDiff = (homeScore - awayScore);
         }else if(awayScore > homeScore){
             winner = awayT;
+            loser = homeT;
             this.goalDiff = (awayScore - homeScore);
         }else{
             winner = null;

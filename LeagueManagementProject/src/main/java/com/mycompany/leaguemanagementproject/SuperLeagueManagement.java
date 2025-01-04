@@ -454,6 +454,7 @@ public class SuperLeagueManagement {
             }else{
                 mResult.winner.totalPoint += 3;
                 mResult.winner.goalDiff += (mResult.goalDiff);
+                mResult.loser.goalDiff -= (mResult.goalDiff);
             }
         }
     }
