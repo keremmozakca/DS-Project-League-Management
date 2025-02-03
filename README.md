@@ -71,6 +71,7 @@ The match results are determined by:
 │   ├── Football_League_Management_Report.pdf
 ├── README.md
 └── .gitignore
+```
 
 ## 📜 Future Improvements
 
